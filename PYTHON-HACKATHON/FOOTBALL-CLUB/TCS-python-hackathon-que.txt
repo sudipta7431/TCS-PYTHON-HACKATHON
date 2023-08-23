@@ -1,0 +1,129 @@
+1. Football Club Management - Python Hackathon Aug 22
+Background:
+Football (Soccer) is a widely loved sport, with clubs and players having fans across the globe. A proper management system helps in analyzing the best performers, understanding players' values, and more. In the world of football, clubs often buy and sell players during the transfer windows. Different factors influence a player's value, such as their performance, age, position, and the club they play for.
+Problem Statement:
+You are required to implement a system that will help football clubs evaluate high-valued players based on specific criteria.
+
+
+Define a class Footballer having the following attributes:
+• 	name (type String): The name of the player.
+• 	club (type String): The name of the club where the player currently plays.
+• 	transfer_fee (type Float): The most recent transfer fee associated with the player.
+•	position (type List of strings): The positions the player can play in, e.g., ['Forward', 'Midfielder'].
+•	debut_date (type String): The date the player made their professional debut, in the format dd/mm/yyyy.
+• 	continent (type String): The continent associated with the player, e.g., 'Europe', 'Asia', 'Africa', 'North America', 'South America', 'Australia'.
+
+
+Create the __init__ method which takes all parameters in the above sequence. The method should set the value of attributes to parameter values inside the method.
+
+Create a class SuperLeague with the following attributes:
+•	 footballers - A List of Footballer Objects.
+•	club_rankings - A Dictionary with club names as keys and their current rankings (lower is better) as values. This
+dictionary will have precisely 5 entries corresponding to the 5 clubs.
+
+Create the __init__ method which takes all parameters in the above sequence. The method should set the value of attributes to parameter values inside the method.
+
+Inside the SuperLeague class, create these methods:
+1. high_value_players(self, threshold_fee: float): This method takes a threshold transfer fee as an input parameter. It searches for European players in the list of players, identifying those with transfer fees greater than the given threshold and whose clubs have a ranking of 5 or better. It returns a list of dictionaries, with each dictionary having the player's name and associated transfer fee. If no player fits the criteria, return None to the main method.
+2. versatile_players(self, year: int):
+This method returns a list of footballers who can play in more than two positions and have made their debut after a given year (input parameter: after_year). The result should be sorted alphabetically by the player's name. If no footballer fits the criteria, return None.
+
+
+Main section instructions:
+1. Create a list of Footballer objects:
+	Read a number for the count of Footballer objects to be created and added to the list.
+- 	For each Footballer object, read the relevant data in the specified sequence (name, club, transfer fee, positions, debut date, and continent).
+- 	For creating the list of positions:
+- 	Read a number for the count of positions for the player. - Read each position sequentially and add it to the list of positions.
+
+2. Create a dictionary of club rankings:
+
+- You will be given exactly 5 clubs and their rankings.
+- For each club:
+- Read the club's name as the key of the dictionary.
+- Read the ranking (integer) of the club as the value for the dictionary.
+
+3. Create an object of the SuperLeague class by passing the list of Footballer objects and dictionary of club rankings created in the previous steps.
+4. Read a float value for the threshold transfer fee for the high_value_players method.
+5. Read an integer value for the debut year for the versatile_players method.
+6. Call the high_value_players method using the SuperLeague object by passing the threshold transfer fee as an argument. 
+7. Call the versatile_players method using the SuperLeague object by passing the debut year as an argument.
+8. Print the output of both methods as per the given output format instructions.
+
+
+Output Format Instructions:
+	1. For the high_value_players method:
+		Print the names and transfer fees of European footballers whose transfer fees are greater than the threshold provided, and who play for a top 5 ranked club.
+		Each footballer should be printed on a new line in the format: "Footballer_Name Transfer_Fee" (separated by a space)
+		If no footballer fits the criteria, print "No high-value player found with given criteria." (excluding the quotes).
+	
+	2. For the versatile_players method:
+		Print the names of footballers who can play in more than two positions and made their debut after the given year.
+		Each footballer's name should be printed on a new line.
+		Names should be printed in alphabetical order.
+		If no footballer fits the criteria, print "No versatile player found with given criteria." (excluding the quotes).
+
+Please check the sample input and output given below for more clarity.
+
+TAST CASE :
+
+5
+Cristiano Ronaldo
+Real Madrid
+155.5
+2
+Striker
+Winger
+04/08/2002
+Europe
+Lionel Messi
+Barcelona
+150.2
+3
+Winger
+Striker
+Midfielder
+17/11/2004
+South America
+Kylian Mbappe
+PSG
+94.0
+3
+Striker
+Forward
+Midfielder
+20/03/2016
+Europe
+Mohamed Salah
+Liverpool
+75.0
+2
+Forward
+Striker
+10/05/2010
+Africa
+Erling Haaland
+Manchester City
+96.0
+2
+Striker
+Forward
+17/02/2017
+Europe
+Real Madrid
+1
+Barcelona
+2
+Liverpool
+3
+Manchester City
+4
+PSG
+5
+95
+2015
+
+Sample Output:
+Cristiano Ronaldo 155.5
+Erling Haaland 96.0
+Kylian Mbappe
